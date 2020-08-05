@@ -1,13 +1,26 @@
 {% extends "base.html" %}
 
 {% block content %}
+<form action="/tasks" method="POST">
+    <label for="title">Title:</label>
+    <input type="text" name="title" id="title" />
+    <label for="description">Description:</label>
+    <textarea name="description" id="description" rows="4" cols="80"></textarea>
+    <input type="submit" value="Add Task">
+  </form>
     <h1>Hi, {{ user.username }}!</h1>
     {% for task in tasks %}
     <div>
-      {{ task.title }}: <b>{{ task.description }}</b>
+        {{ task.title }}: <b>{{ task.description }}</b>
           {% if task.done %}
           <span> &#9989;</span>
+          {% else %}
+          <span>
+            <form style="display:inline" action="/tasks/{{task.id}}" method="POST">
+              <input type="submit" value="Mark as complete">
+            </form>
+          </span>
           {% endif %}
-    </div>
+      </div>
     {% endfor %}
 {% endblock %}

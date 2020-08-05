@@ -4,7 +4,7 @@ from app.models import User, Task
 Task.query.delete()
 User.query.delete()
 
-user = User(username='Sandy')
+user = User(username='Mark')
 db.session.add(user)
 db.session.commit()
 
