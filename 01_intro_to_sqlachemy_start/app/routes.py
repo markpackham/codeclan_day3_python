@@ -1,4 +1,4 @@
-from flask import render_template, request
+from flask import render_template, request, redirect
 from app import app, db
 from app.models import User, Task
 
@@ -23,4 +23,4 @@ def update(task_id):
     task = Task.query.get(task_id)
     task.done = True
     db.session.commit()
-    return redirect('/tasks')
+    return redirect('/')
