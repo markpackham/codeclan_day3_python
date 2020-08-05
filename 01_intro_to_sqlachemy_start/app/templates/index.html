@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <h1>Hi, {{ user.username }}!</h1>
+    {% for task in tasks %}
+    <div>
+      {{ task.title }}: <b>{{ task.description }}</b>
+          {% if task.done %}
+          <span> &#9989;</span>
+          {% endif %}
+    </div>
+    {% endfor %}
+{% endblock %}
