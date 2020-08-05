@@ -1,6 +1,7 @@
 from flask import render_template
 from app import app
 
+# the "u" in the title area is for handling Unicode
 @app.route('/')
 def index():
     user = {'username':'Mark'}
