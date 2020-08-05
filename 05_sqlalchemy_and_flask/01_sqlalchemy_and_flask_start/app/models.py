@@ -1,14 +1,11 @@
 from app import db
 
-
 class User(db.Model):
     id = db.Column(db.Integer, primary_key=True)
-    username = db.Column(db.String(64), index=True)
+    name = db.Column(db.String(64), index=True)
     tasks = db.relationship('Task', backref='user', lazy='dynamic')
-
     def __repr__(self):
-        return '<User {}>'.format(self.username)
-
+        return '<User {}>'.format(self.name)
 
 class Task(db.Model):
     id = db.Column(db.Integer, primary_key=True)
