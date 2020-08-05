@@ -3,9 +3,16 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{{ title }} - Mt To Do List</title>
+    <title>{{ title }} - My To Do List</title>
 </head>
 <body>
     <h1>Howdy {{ user.username }}!</h1>
+    {% for task in tasks %}
+    <div>
+        <p>
+            {{ task.title}}: <b>{{task.description}}</b>
+        </p>
+    </div>
+    {% endfor %}
 </body>
 </html>
